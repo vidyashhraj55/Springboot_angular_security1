@@ -1,0 +1,34 @@
+<div class="loginform">
+
+
+  <form class="example-container" [formGroup]="loginForm" action="" (submit)="loginUser()" autocomplete="off" method="POST">
+    <mat-icon class="icon1">
+          account_circle_outlined
+          </mat-icon>
+          <h3 class="sign">Sign In</h3>
+          <mat-form-field class="userName">
+            <input matInput placeholder="userName" formControlName="userName" >
+            <!-- <span matSuffix style="color: firebrick;" >@gmail.com</span> -->
+            <mat-error *ngIf="!loginForm.hasError('pattern')">
+              Enter <strong>valid </strong>Username
+            </mat-error>
+          </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Password"  [type]="hide ? 'password' : 'text'" formControlName="password" [errorStateMatcher]="matcher">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-error *ngIf="!loginForm.hasError('required')">
+        Password is <strong>Required </strong>
+      </mat-error>
+    </mat-form-field>
+      <!-- <button mat-flat-button class="forlog">forgot password?</button> -->
+      <div class="example-button-row">
+      
+       
+        <button id="loginbtn" mat-flat-button class="login" (click)="loginUser()">login</button>
+        <!-- <button id="regisbtn" mat-flat-button class="registerd" (click)="navigateRegister()">not yet registerd? <span class="regi">Register</span></button> -->
+  
+      </div>
+      </form>
+  
+  </div>
